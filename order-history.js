@@ -1,6 +1,7 @@
 (function () {
   const ORDERS_STORAGE_KEY = "smile-shop-orders";
   const ordersListEl = document.getElementById("orders-list");
+  const btnClearHistory = document.getElementById("btn-clear-history");
 
   function formatDate(iso) {
     const date = new Date(iso);
@@ -45,5 +46,20 @@
     ordersListEl.innerHTML = '<article class="product-card"><div class="product-body"><h2 class="product-title">Chưa có đơn hàng</h2><div class="product-series">Hãy mua hàng và thanh toán để tạo lịch sử đơn.</div></div></article>';
     return;
   }
-  ordersListEl.innerHTML = orders.map(renderOrder).join("");
+ordersListEl.innerHTML = orders.map(renderOrder).join("");
+
+  // Xử lý nút xóa lịch sử
+  if (btnClearHistory) {
+    if (!orders.length) {
+      btnClearHistory.style.display = "none";
+    }
+    
+    btnClearHistory.addEventListener("click", function () {
+      if (confirm("Bạn có chắc muốn xóa toàn bộ lịch sử đơn hàng không?")) {
+        localStorage.removeItem(ORDERS_STORAGE_KEY);
+        ordersListEl.innerHTML = '<article class="product-card"><div class="product-body"><h2 class="product-title">Chưa có đơn hàng</h2><div class="product-series">Hãy mua hàng và thanh toán để tạo lịch sử đơn.</div></div></article>';
+        btnClearHistory.style.display = "none";
+      }
+    });
+  }
 })();

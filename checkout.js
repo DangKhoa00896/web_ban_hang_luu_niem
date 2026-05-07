@@ -2,6 +2,7 @@
   const ITEMS_STORAGE_KEY = "smile-shop-cart-items";
   const COUNT_STORAGE_KEY = "smile-shop-cart-count";
   const ORDERS_STORAGE_KEY = "smile-shop-orders";
+  const USER_STORAGE_KEY = "smile-shop-user";
   const checkoutForm = document.getElementById("checkout-form");
   const checkoutItemsEl = document.getElementById("checkout-items");
   const checkoutTotalEl = document.getElementById("checkout-total");
@@ -49,6 +50,18 @@
 
   const currentItems = loadItems();
   renderSummary(currentItems);
+
+  let currentUser = null;
+  try {
+    currentUser = JSON.parse(localStorage.getItem(USER_STORAGE_KEY) || "null");
+  } catch (error) {
+    currentUser = null;
+  }
+  if (!currentUser || !currentUser.fullName) {
+    alert("Vui lòng đăng nhập trước khi thanh toán.");
+    window.location.href = "login.html";
+    return;
+  }
 
   checkoutForm.addEventListener("submit", function (event) {
     event.preventDefault();

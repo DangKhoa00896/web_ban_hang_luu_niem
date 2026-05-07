@@ -25,16 +25,16 @@
 
       <div class="header-actions">
         <a href="#dang-nhap">👤 Đăng nhập</a>
-        <a id="cart-link" href="cart.html">🛒 Giỏ hàng (<span id="cart-count">0</span>)</a>
+        <a id="cart-link" href="cart.html">🛒 Giỏ hàng (<span id="cart-count" data-cart-count>0</span>)</a>
       </div>
     </div>
 
     <nav>
       <div class="nav-inner">
-        <a href="index.html" class="active">Trang chủ</a>
+        <a href="trangchu.html" class="active">Trang chủ</a>
         <a href="nendoroid.html">Nendoroid</a>
         <a href="scale-figure.html">Scale Figure</a>
-        <a href="pop-up-parade.html">Pop Up Parade</a>
+        <a href="pop-up-parade.html">Deltarune </a>
         <a href="plush-doll.html">Gấu bông / Doll</a>
         <a href="keychain-strap.html">Móc khóa & Strap</a>
         <a href="acrylic-stand.html">Acrylic Stand</a>
@@ -45,7 +45,15 @@
       </div>
     </nav>
   </header>
-
+<section class="event-banner-wrap" aria-label="Banner sự kiện cộng đồng">
+    <a class="event-banner-link" href="#">
+      <img
+        class="event-banner-image"
+        src="madaothanhcong.jpg"
+        alt="Banner sự kiện cộng đồng fan anime"
+      />
+    </a>
+  </section>
   <!-- HERO BANNER LỚN -->
   <section class="hero">
     <div class="hero-main">
@@ -69,15 +77,15 @@
       <div class="hero-stats">
         <div>
           <strong>+1,200</strong>
-          figure & goods đang bán
+          Figure & goods đang bán
         </div>
         <div>
           <strong>Miễn phí</strong>
-          ship đơn từ 1.000.000đ
+          Ship đơn từ 1.000.000đ
         </div>
         <div>
           <strong>Chính hãng</strong>
-          nhập từ Nhật, Hàn, US
+          Nhập từ Nhật, Hàn, US
         </div>
       </div>
 
@@ -111,6 +119,8 @@
     </div>
   </section>
 
+  
+
   <!-- DANH SÁCH SẢN PHẨM -->
   <main>
     <div class="section-header">
@@ -118,18 +128,12 @@
         <div class="section-title">Sản phẩm nổi bật</div>
         <div class="section-sub">Gợi ý dành cho bạn · Lấy cảm hứng từ Good Smile</div>
       </div>
-     
     </div>
 
     <section id="product-list" class="product-grid" aria-label="Danh sách sản phẩm nổi bật">
       <!-- 1 -->
       <article class="product-card">
         <div class="product-badge hot">Hot</div>
-        <div class="product-image-wrapper">
-          <div class="product-image-inner">
-            <img class="product-image" src="https://picsum.photos/seed/gs-item-01/420/520" alt="Nendoroid Hero Girl" />
-          </div>
-        </div>
         <div class="product-body">
           <h2 class="product-title">Nendoroid Hero Girl - Edition Sakura Festival</h2>
           <div class="product-series">Series: Fantasy Smile Collection</div>
@@ -150,11 +154,6 @@
       <!-- 2 -->
       <article class="product-card">
         <div class="product-badge">New</div>
-        <div class="product-image-wrapper">
-          <div class="product-image-inner">
-            <img class="product-image" src="https://picsum.photos/seed/gs-item-02/420/520" alt="Scale Figure Magic Idol Star" />
-          </div>
-        </div>
         <div class="product-body">
           <h2 class="product-title">Scale Figure 1/7 Magic Idol Star Stage Ver.</h2>
           <div class="product-series">Series: Idol Miracle Project</div>
@@ -171,11 +170,6 @@
 
       <!-- 3 -->
       <article class="product-card">
-        <div class="product-image-wrapper">
-          <div class="product-image-inner">
-            <img class="product-image" src="https://picsum.photos/seed/gs-item-03/420/520" alt="Acrylic Stand Chibi Friends" />
-          </div>
-        </div>
         <div class="product-body">
           <h2 class="product-title">Acrylic Stand Chibi Friends - Set 3 nhân vật</h2>
           <div class="product-series">Goods: Acrylic Stand Collection</div>
@@ -193,11 +187,6 @@
       <!-- 4 -->
       <article class="product-card">
         <div class="product-badge">Limited</div>
-        <div class="product-image-wrapper">
-          <div class="product-image-inner">
-            <img class="product-image" src="https://picsum.photos/seed/gs-item-04/420/520" alt="Plush Doll Bunny Dream Night" />
-          </div>
-        </div>
         <div class="product-body">
           <h2 class="product-title">Plush Doll - Bunny Dream Night Ver.</h2>
           <div class="product-series">Plush: Dreamy Sleepy Friends</div>
@@ -217,11 +206,6 @@
 
       <!-- 5 -->
       <article class="product-card">
-        <div class="product-image-wrapper">
-          <div class="product-image-inner">
-            <img class="product-image" src="https://picsum.photos/seed/gs-item-05/420/520" alt="Rubber Keychain Set" />
-          </div>
-        </div>
         <div class="product-body">
           <h2 class="product-title">Móc khóa Rubber - Smile Chibi Pack (Set 4)</h2>
           <div class="product-series">Keychain & Strap Goods</div>
@@ -239,11 +223,6 @@
       <!-- 6 -->
       <article class="product-card">
         <div class="product-badge hot">Hot</div>
-        <div class="product-image-wrapper">
-          <div class="product-image-inner">
-            <img class="product-image" src="https://picsum.photos/seed/gs-item-06/420/520" alt="Desk Decoration Set" />
-          </div>
-        </div>
         <div class="product-body">
           <h2 class="product-title">Desk Decoration Set - Mini World Anime Room</h2>
           <div class="product-series">Desk Goods · Combo đặc biệt</div>
@@ -267,16 +246,17 @@
   <footer>
     <div class="footer-inner">
       <div>
-        © 2026 Smile Figure Shop. Lấy cảm hứng từ Good Smile Company – Đây chỉ là trang demo / fanmade.
+        © 2026 Smile Figure Shop. Lấy cảm hứng từ Good Smile Company – Đây chỉ là trang fanmade.
       </div>
       <div class="footer-links">
-        <a href="chinh-sach-bao-hanh.html">Bảo hành & đổi trả</a>
-        <a href="huong-dan-dat-hang.html">Hướng dẫn đặt hàng</a>
-        <a href="faq.html">Câu hỏi thường gặp</a>
+        <a href="#">Bảo hành & đổi trả</a>
+        <a href="#">Hướng dẫn đặt hàng</a>
+        <a href="#">Câu hỏi thường gặp</a>
       </div>
     </div>
   </footer>
   <script src="script.js"></script>
-   <script src="cart-count-sync.js"></script>
+  <script src="cart-count-sync.js"></script>
+  <script src="shop-actions.js"></script>
 </body>
 </html>
