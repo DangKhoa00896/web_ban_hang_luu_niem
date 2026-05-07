@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lịch sử mua - Smile Figure Shop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo">
+        <div class="logo-circle">G</div>
+        <div>
+          <div class="logo-text-main">Smile Figure Shop</div>
+          <div class="logo-text-sub">Đồ lưu niệm & figure chính hãng</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="trangchu.html">🏠 Trang chủ</a>
+        <a href="cart.html">🛒 Giỏ hàng (<span data-cart-count>0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-header">
+      <div>
+        <div class="section-title">Lịch sử đơn hàng</div>
+        <div class="section-sub">Các đơn demo đã lưu trong localStorage</div>
+      </div>
+    </div>
+
+    <section id="orders-list" class="product-grid" aria-label="Danh sách lịch sử đơn hàng"></section>
+  </main>
+
+  <script src="order-history.js"></script>
+  <script src="cart-count-sync.js"></script>
+</body>
+</html>
