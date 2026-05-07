@@ -44,7 +44,7 @@
       '<div class="product-meta">' +
       '<div class="product-price">So luong: ' +
       '<button class="btn-mini qty-btn decrease-btn" data-index="' + index + '" type="button">-</button> ' +
-      '<span class="qty-value">' + item.qty + "</span> " +
+      '<input class="qty-value qty-input" data-index="' + index + '" type="number" min="1" step="1" value="' + item.qty + '" aria-label="So luong san pham" /> ' +
       '<button class="btn-mini qty-btn increase-btn" data-index="' + index + '" type="button">+</button>' +
       "</div>" +
       '<div class="product-status">Tam tinh: ' + formatPrice(subtotal) + "</div>" +
@@ -119,6 +119,25 @@
       saveCartItems([]);
       renderCart();
     }
+  });
+
+  document.addEventListener("change", function (event) {
+    const qtyInput = event.target.closest(".qty-input");
+    if (!qtyInput) return;
+
+    const index = Number(qtyInput.dataset.index);
+    const items = loadCartItems();
+    if (!items[index]) return;
+
+    const nextQty = Number(qtyInput.value);
+    if (!Number.isFinite(nextQty) || nextQty < 1) {
+      qtyInput.value = String(items[index].qty);
+      return;
+    }
+
+    items[index].qty = Math.floor(nextQty);
+    saveCartItems(items);
+    renderCart();
   });
 
   renderCart();

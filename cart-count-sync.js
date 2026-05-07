@@ -41,7 +41,8 @@
     "combo sticker deltarune": "keychain-strap.html"
   };
   const MENU_LABEL_BY_HREF = {
-    "pop-up-parade.html": "Deltarune"
+    "pop-up-parade.html": "Deltarune",
+    "keychain-strap.html": "Móc khóa & Stickers"
   };
 
   function getCartCount() {

@@ -676,6 +676,23 @@ main {
   margin-left: 4px;
 }
 
+.product-price .qty-value {
+  font-size: 1rem;
+  color: #222;
+  text-decoration: none;
+  margin-left: 0;
+}
+
+.qty-input {
+  width: 56px;
+  height: 32px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 700;
+  background: #fff;
+}
+
 .product-status {
   font-size: 0.7rem;
   padding: 3px 7px;
