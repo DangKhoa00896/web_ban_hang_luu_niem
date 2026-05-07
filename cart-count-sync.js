@@ -228,6 +228,19 @@
     });
   }
 
+  function optimizeImageLoading() {
+    const images = Array.from(document.querySelectorAll("img"));
+    images.forEach(function (img) {
+      const isCritical = img.classList.contains("hero-banner-image") || img.classList.contains("event-banner-image");
+      if (!img.getAttribute("decoding")) {
+        img.setAttribute("decoding", "async");
+      }
+      if (!img.getAttribute("loading")) {
+        img.setAttribute("loading", isCritical ? "eager" : "lazy");
+      }
+    });
+  }
+
   document.addEventListener("click", function (event) {
     const logoutBtn = event.target.closest(".logout-link");
     if (!logoutBtn) return;
@@ -241,4 +254,5 @@
   ensureDashboardMenuLink();
   enableGlobalSearchSuggest();
   applyHighlightFromQuery();
+  optimizeImageLoading();
 })();

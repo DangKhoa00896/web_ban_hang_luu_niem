@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>Smile Figure Shop - Đồ lưu niệm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="Tazuna_Hayakawa_29.webp" />
+  <link rel="preload" as="image" href="images/event-community-banner.jpg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -34,7 +38,7 @@
         <a href="trangchu.html" class="active">Trang chủ</a>
         <a href="nendoroid.html">Nendoroid</a>
         <a href="scale-figure.html">Scale Figure</a>
-        <a href="pop-up-parade.html">Deltarune </a>
+        <a href="pop-up-parade.html">Deltarune</a>
         <a href="plush-doll.html">Gấu bông / Doll</a>
         <a href="keychain-strap.html">Móc khóa & Strap</a>
         <a href="acrylic-stand.html">Acrylic Stand</a>
@@ -45,15 +49,7 @@
       </div>
     </nav>
   </header>
-<section class="event-banner-wrap" aria-label="Banner sự kiện cộng đồng">
-    <a class="event-banner-link" href="#">
-      <img
-        class="event-banner-image"
-        src="madaothanhcong.jpg"
-        alt="Banner sự kiện cộng đồng fan anime"
-      />
-    </a>
-  </section>
+
   <!-- HERO BANNER LỚN -->
   <section class="hero">
     <div class="hero-main">
@@ -94,6 +90,10 @@
         <img
           class="hero-banner-image"
           src="Tazuna_Hayakawa_29.webp"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+          onerror="this.onerror=null;this.src='https://picsum.photos/seed/anime-figure-banner/520/680';"
           alt="Banner figure"
         />
       </div>
@@ -119,7 +119,34 @@
     </div>
   </section>
 
-  
+  <section class="event-banner-wrap" aria-label="Banner sự kiện cộng đồng">
+    <a
+      class="event-banner-link"
+      href="lien-he.html"
+      style="--event-image-url: url('images/event-community-banner.jpg');"
+    >
+      <img
+        class="event-banner-image"
+        src="images/event-community-banner.jpg"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        onerror="this.onerror=null;this.src='https://picsum.photos/seed/event-community-banner/1600/700';"
+        alt="Banner sự kiện cộng đồng fan anime"
+      />
+      <span class="event-banner-badge">Sự kiện cộng đồng</span>
+    </a>
+    <div class="quick-flyout" aria-label="Đi nhanh đến các trang">
+      <button class="quick-flyout-trigger" type="button">Đi nhanh ↗</button>
+      <div class="quick-flyout-menu">
+        <a href="nendoroid.html">Nendoroid</a>
+        <a href="scale-figure.html">Scale Figure</a>
+        <a href="pop-up-parade.html">Deltarune</a>
+        <a href="cart.html">Giỏ hàng</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+    </div>
+  </section>
 
   <!-- DANH SÁCH SẢN PHẨM -->
   <main>
