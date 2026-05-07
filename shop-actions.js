@@ -14,7 +14,7 @@
       "tamamo chibi.webp",
       "super creek chibi.webp",
       "oguri cap chibi2.webp",
-      "fujimasa March chibi.webp",
+      "Fujimasa March chibi.webp",
       "manhattan cafe chibi.webp",
       "agnes tachyon chibi.webp"
       
