@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="image" href="../images/Tazuna_Hayakawa_29.webp" />
-  <link rel="preload" as="image" href="../images/event-community-banner.jpg" />
+  <link rel="preload" as="image" href="../images/Tazuna_Hayakawa_29.webp" fetchpriority="high" />
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
@@ -93,7 +92,10 @@
           fetchpriority="high"
           loading="eager"
           decoding="async"
-          onerror="this.onerror=null;this.src='https://picsum.photos/seed/anime-figure-banner/520/680';"
+          width="520"
+          height="680"
+          sizes="(max-width: 900px) 42vw, 520px"
+          onerror="this.onerror=null;this.src='https://picsum.photos/seed/anime-figure-banner/480/620';"
           alt="Banner figure"
         />
       </div>
@@ -128,10 +130,13 @@
       <img
         class="event-banner-image"
         src="../images/madaothanhcong.jpg"
-        fetchpriority="high"
-        loading="eager"
+        fetchpriority="low"
+        loading="lazy"
         decoding="async"
-        onerror="this.onerror=null;this.src='https://picsum.photos/seed/event-community-banner/1600/700';"
+        width="1600"
+        height="560"
+        sizes="100vw"
+        onerror="this.onerror=null;this.src='https://picsum.photos/seed/event-community-banner/1200/500';"
         alt="Banner sự kiện cộng đồng fan anime"
       />
      

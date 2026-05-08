@@ -1,4 +1,19 @@
 (function () {
+  function ensureRobotoNonBlocking() {
+    if (document.querySelector('link[data-smile-google-font="1"]')) return;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap";
+    link.media = "print";
+    link.onload = function () {
+      link.media = "all";
+    };
+    link.setAttribute("data-smile-google-font", "1");
+    document.head.appendChild(link);
+  }
+  ensureRobotoNonBlocking();
+
   const COUNT_STORAGE_KEY = "smile-shop-cart-count";
   const ITEMS_STORAGE_KEY = "smile-shop-cart-items";
   const USER_STORAGE_KEY = "smile-shop-user";
@@ -233,7 +248,7 @@
   function optimizeImageLoading() {
     const images = Array.from(document.querySelectorAll("img"));
     images.forEach(function (img) {
-      const isCritical = img.classList.contains("hero-banner-image") || img.classList.contains("event-banner-image");
+      const isCritical = img.classList.contains("hero-banner-image");
       if (!img.getAttribute("decoding")) {
         img.setAttribute("decoding", "async");
       }

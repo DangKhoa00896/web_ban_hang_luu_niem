@@ -14,7 +14,7 @@
       "tamamo chibi.webp",
       "super creek chibi.webp",
       "oguri cap chibi2.webp",
-      "Fujimasa March chibi.webp",
+      "fujimasa March chibi.webp",
       "manhattan cafe chibi.webp",
       "agnes tachyon chibi.webp"
       
@@ -124,6 +124,58 @@
     return prefix + s;
   }
 
+  var PRODUCT_IMG_PLACEHOLDER =
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='260'/%3E";
+
+  function attachProductImageFallback(img) {
+    img.addEventListener("error", function handler() {
+      var step = Number(img.dataset.imgFb || "0") + 1;
+      img.dataset.imgFb = String(step);
+      if (step === 1) {
+        img.src = resolveProductImageSrc("tracen.jpg");
+        return;
+      }
+      if (step === 2) {
+        img.src = "https://picsum.photos/seed/smile-fb/320/320";
+        return;
+      }
+      img.removeEventListener("error", handler);
+    });
+  }
+
+  function wireDeferredProductImages(root) {
+    var scope = root || document;
+    var imgs = Array.from(scope.querySelectorAll('img.product-image[data-defer-src]'));
+    if (!imgs.length) return;
+
+    function reveal(img) {
+      var url = img.getAttribute("data-defer-src");
+      if (!url) return;
+      img.removeAttribute("data-defer-src");
+      img.src = url;
+      attachProductImageFallback(img);
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      imgs.forEach(reveal);
+      return;
+    }
+
+    var io = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          reveal(entry.target);
+          obs.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "240px", threshold: 0.01 }
+    );
+    imgs.forEach(function (img) {
+      io.observe(img);
+    });
+  }
+
   function loadCartItems() {
     try {
       const parsed = JSON.parse(localStorage.getItem(ITEMS_STORAGE_KEY) || "[]");
@@ -221,32 +273,39 @@ function applyHighlightFromQuery() {
       const existingImage = card.querySelector(".product-image");
 
       if (existingImage) {
-        existingImage.setAttribute("src", resolvedSrc);
-        existingImage.setAttribute("loading", "lazy");
-        existingImage.setAttribute("decoding", "async");
         existingImage.setAttribute("alt", productTitle);
+        existingImage.setAttribute("sizes", "(max-width: 520px) 50vw, 280px");
+        existingImage.setAttribute("width", "400");
+        existingImage.setAttribute("height", "260");
+        existingImage.loading = "lazy";
+        existingImage.decoding = "async";
+        existingImage.setAttribute("fetchpriority", "low");
+        existingImage.src = PRODUCT_IMG_PLACEHOLDER;
+        existingImage.setAttribute("data-defer-src", resolvedSrc);
         return;
       }
 
       const imageWrapper = document.createElement("div");
       imageWrapper.className = "product-image-wrapper";
-      imageWrapper.innerHTML =
-        '<div class="product-image-inner">' +
-        '<img class="product-image" src="' + resolvedSrc + '" alt="' + productTitle + '" loading="lazy" decoding="async">' +
-        "</div>";
-
+      const inner = document.createElement("div");
+      inner.className = "product-image-inner";
+      const img = document.createElement("img");
+      img.className = "product-image";
+      img.alt = productTitle;
+      img.sizes = "(max-width: 520px) 50vw, 280px";
+      img.width = 400;
+      img.height = 260;
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.setAttribute("fetchpriority", "low");
+      img.src = PRODUCT_IMG_PLACEHOLDER;
+      img.setAttribute("data-defer-src", resolvedSrc);
+      inner.appendChild(img);
+      imageWrapper.appendChild(inner);
       card.insertBefore(imageWrapper, body);
     });
 
-    document.querySelectorAll(".product-image").forEach(function (img) {
-      img.addEventListener("error", function () {
-        img.src = resolveProductImageSrc("tracen.jpg");
-        img.onerror = function () {
-          img.src = "https://picsum.photos/seed/smile-shop-product/520/520";
-          img.onerror = null;
-        };
-      }, { once: true });
-    });
+    wireDeferredProductImages(document);
   }
 
   function ensureTenProducts() {
@@ -321,4 +380,3 @@ function applyHighlightFromQuery() {
     addToCart(productName, productPrice);
   });
 })();
-
