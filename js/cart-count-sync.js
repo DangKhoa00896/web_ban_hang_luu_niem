@@ -258,37 +258,68 @@
     });
   }
 
+  function navCurrentPageFile() {
+    let name = (window.location.pathname.split("/").pop() || "").toLowerCase();
+    if (!name || name === "index.html") return "trangchu.html";
+    return name;
+  }
+
+  function navHrefPageFile(hrefRaw) {
+    const raw = (hrefRaw || "").trim();
+    if (!raw || raw === "#" || raw.toLowerCase().indexOf("javascript:") === 0) return "";
+    try {
+      const abs = new URL(raw, window.location.href);
+      let last = (abs.pathname.split("/").pop() || "").toLowerCase();
+      if (!last || last === "index.html") last = "trangchu.html";
+      return last;
+    } catch (err) {
+      const part = raw.split(/[?#]/)[0].split("/").pop().toLowerCase();
+      return part || "";
+    }
+  }
+
+  /** Cuộn .nav-inner (overflow-x) để đưa link vào giữa — scrollIntoView thường không ổn trên iOS/WebKit. */
+  function scrollNavInnerToLink(inner, link) {
+    if (!inner || !link) return;
+    const maxScroll = Math.max(0, inner.scrollWidth - inner.clientWidth);
+    if (maxScroll <= 0) return;
+
+    const ir = inner.getBoundingClientRect();
+    const lr = link.getBoundingClientRect();
+    const linkCenter = lr.left + lr.width / 2;
+    const innerCenter = ir.left + inner.clientWidth / 2;
+    let next = inner.scrollLeft + (linkCenter - innerCenter);
+    if (next < 0) next = 0;
+    if (next > maxScroll) next = maxScroll;
+    inner.scrollLeft = next;
+  }
+
   function syncNavActiveAndScroll() {
-    const pathFile = (window.location.pathname.split("/").pop() || "").toLowerCase();
-    const normalizedPath = pathFile === "" || pathFile === "index.html" ? "trangchu.html" : pathFile;
+    const pageFile = navCurrentPageFile();
 
     document.querySelectorAll("nav .nav-inner").forEach(function (inner) {
-      let active = inner.querySelector("a.active");
-      if (!active) {
-        inner.querySelectorAll("a[href]").forEach(function (a) {
-          const hrefRaw = (a.getAttribute("href") || "").trim();
-          const href = hrefRaw.split(/[?#]/)[0].toLowerCase();
-          if (!href || href === "#" || href.indexOf("javascript:") === 0) return;
-          if (href === normalizedPath) {
-            inner.querySelectorAll("a.active").forEach(function (x) {
-              x.classList.remove("active");
-            });
-            a.classList.add("active");
-            active = a;
-          }
-        });
-      }
+      let active = null;
+      inner.querySelectorAll("a[href]").forEach(function (a) {
+        const file = navHrefPageFile(a.getAttribute("href"));
+        if (file && file === pageFile) active = a;
+      });
       if (!active) return;
 
-      function scrollCenter() {
-        try {
-          active.scrollIntoView({ inline: "center", block: "nearest", behavior: "auto" });
-        } catch (e) {
-          active.scrollIntoView();
-        }
+      inner.querySelectorAll("a.active").forEach(function (x) {
+        x.classList.remove("active");
+      });
+      active.classList.add("active");
+
+      function doScroll() {
+        scrollNavInnerToLink(inner, active);
       }
-      requestAnimationFrame(scrollCenter);
-      setTimeout(scrollCenter, 80);
+      requestAnimationFrame(function () {
+        doScroll();
+        requestAnimationFrame(doScroll);
+      });
+      setTimeout(doScroll, 0);
+      setTimeout(doScroll, 120);
+      setTimeout(doScroll, 320);
     });
   }
 
