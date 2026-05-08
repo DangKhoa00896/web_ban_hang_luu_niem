@@ -258,6 +258,40 @@
     });
   }
 
+  function syncNavActiveAndScroll() {
+    const pathFile = (window.location.pathname.split("/").pop() || "").toLowerCase();
+    const normalizedPath = pathFile === "" || pathFile === "index.html" ? "trangchu.html" : pathFile;
+
+    document.querySelectorAll("nav .nav-inner").forEach(function (inner) {
+      let active = inner.querySelector("a.active");
+      if (!active) {
+        inner.querySelectorAll("a[href]").forEach(function (a) {
+          const hrefRaw = (a.getAttribute("href") || "").trim();
+          const href = hrefRaw.split(/[?#]/)[0].toLowerCase();
+          if (!href || href === "#" || href.indexOf("javascript:") === 0) return;
+          if (href === normalizedPath) {
+            inner.querySelectorAll("a.active").forEach(function (x) {
+              x.classList.remove("active");
+            });
+            a.classList.add("active");
+            active = a;
+          }
+        });
+      }
+      if (!active) return;
+
+      function scrollCenter() {
+        try {
+          active.scrollIntoView({ inline: "center", block: "nearest", behavior: "auto" });
+        } catch (e) {
+          active.scrollIntoView();
+        }
+      }
+      requestAnimationFrame(scrollCenter);
+      setTimeout(scrollCenter, 80);
+    });
+  }
+
   document.addEventListener("click", function (event) {
     const logoutBtn = event.target.closest(".logout-link");
     if (!logoutBtn) return;
@@ -269,6 +303,7 @@
   syncAuthUI();
   syncMenuLabels();
   ensureDashboardMenuLink();
+  syncNavActiveAndScroll();
   enableGlobalSearchSuggest();
   applyHighlightFromQuery();
   optimizeImageLoading();
