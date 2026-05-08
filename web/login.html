@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng nhập - Smile Figure Shop</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo">
+        <div class="logo-circle">G</div>
+        <div>
+          <div class="logo-text-main">Smile Figure Shop</div>
+          <div class="logo-text-sub">Đồ lưu niệm & figure chính hãng</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="trangchu.html">🏠 Trang chủ</a>
+        <a href="cart.html">🛒 Giỏ hàng (<span data-cart-count>0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-header">
+      <div>
+        <div class="section-title">Đăng nhập tài khoản</div>
+        <div class="section-sub">Đăng nhập để đặt hàng và lưu lịch sử mua</div>
+      </div>
+    </div>
+
+    <section class="product-grid">
+      <article class="product-card">
+        <div class="product-body">
+          <h2 class="product-title">Thông tin đăng nhập</h2>
+          <form id="login-form">
+            <p class="product-series">Họ tên hiển thị</p>
+            <input id="login-name" type="text" placeholder="Nguyễn Văn A" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:8px;margin-bottom:8px;" required />
+            <p class="product-series">Email</p>
+            <input id="login-email" type="email" placeholder="abc@gmail.com" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:8px;margin-bottom:12px;" required />
+            <button class="btn-primary" type="submit">Đăng nhập</button>
+          </form>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="../js/login.js"></script>
+  <script src="../js/cart-count-sync.js"></script>
+</body>
+</html>
