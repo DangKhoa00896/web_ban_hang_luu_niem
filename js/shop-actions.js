@@ -114,14 +114,45 @@
     return /\/web\/[^/]+\.html?$/i.test(path);
   }
 
+  function encodeRelativeImageSegments(url) {
+    if (/^(https?:|data:|blob:)/i.test(url)) return url;
+    var parts = url.split("/");
+    var i;
+    var seg;
+    var out = [];
+    for (i = 0; i < parts.length; i += 1) {
+      seg = parts[i];
+      if (seg === "") {
+        out.push("");
+        continue;
+      }
+      if (seg === "." || seg === "..") {
+        out.push(seg);
+        continue;
+      }
+      try {
+        out.push(encodeURIComponent(decodeURIComponent(seg)));
+      } catch (e1) {
+        out.push(encodeURIComponent(seg));
+      }
+    }
+    return out.join("/");
+  }
+
   function resolveProductImageSrc(src) {
     if (!src) return src;
     var s = String(src).trim();
     if (/^(https?:|data:|blob:)/i.test(s)) return s;
-    if (s.lastIndexOf("../", 0) === 0 || s.lastIndexOf("./", 0) === 0) return s;
     var prefix = isUnderWebHtmlPath() ? "../images/" : "images/";
-    if (s.indexOf("images/") === 0) return prefix + s.slice("images/".length);
-    return prefix + s;
+    var rel;
+    if (s.lastIndexOf("../", 0) === 0 || s.lastIndexOf("./", 0) === 0) {
+      rel = s;
+    } else if (s.indexOf("images/") === 0) {
+      rel = prefix + s.slice("images/".length);
+    } else {
+      rel = prefix + s;
+    }
+    return encodeRelativeImageSegments(rel);
   }
 
   var PRODUCT_IMG_PLACEHOLDER =
