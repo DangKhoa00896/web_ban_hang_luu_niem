@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danh sách Lab - Thực hành Web</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 28px 18px 40px;
+    }
+    .page-head {
+      max-width: 1200px;
+      margin: 0 auto 24px;
+    }
+    .page-head h1 {
+      margin: 0 0 8px;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .page-head p {
+      margin: 0;
+      color: #5c5c5c;
+      font-size: 0.95rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #1a6f3a;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .lab-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+    @media (max-width: 1024px) {
+      .lab-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 520px) {
+      .lab-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .lab-card {
+      background: #fff;
+      border: 1px solid #e2e4e8;
+      border-radius: 12px;
+      padding: 18px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+    .lab-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .lab-card ul {
+      margin: 0 0 auto;
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .lab-card ul a {
+      color: #2d6a4f;
+      text-decoration: none;
+    }
+    .lab-card ul a:hover {
+      text-decoration: underline;
+    }
+    .lab-card .btn-detail {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 8px;
+      background: #28a745;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      font-family: inherit;
+    }
+    .lab-card .btn-detail:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-head">
+    <a class="back-link" href="trangchu.html">← Về Smile Figure Shop</a>
+    <h1>Thực hành Lab</h1>
+    <p>
+      Mỗi lab mở một trang HTML riêng trong thư mục <code>labs/</code> — bạn có thể sửa hoặc thêm file
+      theo đường dẫn bên dưới.
+    </p>
+  </div>
+
+  <div class="lab-grid">
+    <article class="lab-card">
+      <h2>Lab01: HTML</h2>
+      <ul>
+        <li><a href="labs/lab01/lab1_3.html">Lab1_3</a></li>
+        <li><a href="labs/lab01/lab1_4.html">Lab1_4</a></li>
+      </ul>
+      <a class="btn-detail" href="labs/lab01.html">Xem chi tiết</a>
+    </article>
+
+    <article class="lab-card">
+      <h2>Lab02: Table &amp; List</h2>
+      <ul>
+        <li><a href="labs/lab02/lab2_1.html">Lab2_1</a></li>
+        <li><a href="labs/lab02/lab2_2.html">Lab2_2</a></li>
+        <li><a href="labs/lab02/lab2_3.html">Lab2_3</a></li>
+      </ul>
+      <a class="btn-detail" href="labs/lab02.html">Xem chi tiết</a>
+    </article>
+
+    <article class="lab-card">
+      <h2>Lab03: Frame &amp; Form</h2>
+      <ul>
+        <li><a href="labs/lab03/lab3_1.html">Lab3_1</a></li>
+        <li><a href="labs/lab03/lab3_2.html">Lab3_2</a></li>
+        <li><a href="labs/lab03/lab3_3.html">Lab3_3</a></li>
+      </ul>
+      <a class="btn-detail" href="labs/lab03.html">Xem chi tiết</a>
+    </article>
+
+    <article class="lab-card">
+      <h2>Lab04: CSS cơ bản</h2>
+      <ul>
+        <li><a href="labs/lab04/lab4_1.html">Lab4_1</a></li>
+        <li><a href="labs/lab04/lab4_2.html">Lab4_2</a></li>
+        <li><a href="labs/lab04/lab4_3.html">Lab4_3</a></li>
+      </ul>
+      <a class="btn-detail" href="labs/lab04.html">Xem chi tiết</a>
+    </article>
+
+    <article class="lab-card">
+      <h2>Lab05: Các thuộc tính CSS</h2>
+      <ul>
+        <li><a href="labs/lab05/lab5_1.html">Lab5_1</a></li>
+        <li><a href="labs/lab05/lab5_2.html">Lab5_2</a></li>
+        <li><a href="labs/lab05/lab5_3.html">Lab5_3</a></li>
+      </ul>
+      <a class="btn-detail" href="labs/lab05.html">Xem chi tiết</a>
+    </article>
+
+    <article class="lab-card">
+      <h2>Lab06: Layout responsive bằng CSS</h2>
+      <ul>
+        <li><a href="labs/lab06/lab6_1.html">Lab6_1</a></li>
+        <li><a href="labs/lab06/lab6_2.html">Lab6_2</a></li>
+        <li><a href="labs/lab06/lab6_3.html">Lab6_3</a></li>
+      </ul>
+      <a class="btn-detail" href="labs/lab06.html">Xem chi tiết</a>
+    </article>
+
+    <article class="lab-card">
+      <h2>Lab07: Javascript</h2>
+      <ul>
+        <li><a href="labs/lab07/lab7_1.html">Lab7_1</a></li>
+        <li><a href="labs/lab07/lab7_2.html">Lab7_2</a></li>
+      </ul>
+      <a class="btn-detail" href="labs/lab07.html">Xem chi tiết</a>
+    </article>
+
+    <article class="lab-card">
+      <h2>Lab08: Javascript nâng cao</h2>
+      <ul>
+        <li><a href="labs/lab08/lab8_1.html">Lab8_1</a></li>
+        <li><a href="labs/lab08/lab8_2.html">Lab8_2</a></li>
+        <li><a href="labs/lab08/lab8_3.html">Lab8_3</a></li>
+      </ul>
+      <a class="btn-detail" href="labs/lab08.html">Xem chi tiết</a>
+    </article>
+  </div>
+</body>
+</html>
