@@ -135,14 +135,34 @@
         <div class="logo-circle">G</div>
         <div>
           <div class="logo-text-main">Smile Figure Shop</div>
-          <div class="logo-text-sub">Dashboard báo cáo doanh thu</div>
+          <div class="logo-text-sub">Đồ lưu niệm & figure chính hãng</div>
         </div>
       </div>
+      <div class="search-box">
+        <input id="search-input" type="text" placeholder="Tìm sản phẩm..." />
+        <span>🔍</span>
+      </div>
       <div class="header-actions">
-        <a href="trangchu.html">🏠 Trang chủ</a>
-        <a href="order-history.html">🧾 Lịch sử đơn</a>
+        <a href="#dang-nhap">👤 Đăng nhập</a>
+        <a href="cart.html">🛒 Giỏ hàng (<span data-cart-count>0</span>)</a>
+        <a href="order-history.html">🧾 Lịch sử mua</a>
       </div>
     </div>
+    <nav>
+      <div class="nav-inner">
+        <a href="trangchu.html">Trang chủ</a>
+        <a href="nendoroid.html">Nendoroid</a>
+        <a href="scale-figure.html">Scale Figure</a>
+        <a href="pop-up-parade.html">Deltarune</a>
+        <a href="plush-doll.html">Gấu bông / Doll</a>
+        <a href="keychain-strap.html">Móc khóa & Strap</a>
+        <a href="acrylic-stand.html">Acrylic Stand</a>
+        <a href="trang-tri-ban.html">Đồ trang trí bàn</a>
+        <a href="preorder.html">Hàng Pre-order</a>
+        <a href="sale.html">Khuyến mãi</a>
+        <a href="lien-he.html">Liên hệ</a>
+      </div>
+    </nav>
   </header>
 
   <main class="dashboard-wrap">
@@ -188,23 +208,28 @@
       <div id="orders-table-wrap"></div>
     </section>
   </main>
-<div class="quick-flyout" aria-label="Đi nhanh đến các trang">
-      <button class="quick-flyout-trigger" type="button">Đi nhanh ↗</button>
-      <div class="quick-flyout-menu">
-        <a href="nendoroid.html">Nendoroid</a>
-        <a href="scale-figure.html">Scale Figure</a>
-        <a href="pop-up-parade.html">Deltarune</a>
-        <a href="plush-doll.html">Gấu bông / Doll</a>
-        <a href="keychain-strap.html">Móc khóa & Strap</a>
-        <a href="acrylic-stand.html">Acrylic Stand</a>
-        <a href="trang-tri-ban.html">Đồ trang trí bàn</a>
-        <a href="preorder.html">Hàng Pre-order</a>
-        <a href="sale.html">Khuyến mãi</a>
-        <a href="lien-he.html">Liên hệ</a>
-        <a href="cart.html">Giỏ hàng</a>
-        <a href="dashboard.html">Dashboard</a>
-      </div>
+
+  <div class="quick-flyout" aria-label="Đi nhanh đến các trang">
+    <button class="quick-flyout-trigger" type="button">Đi nhanh ↗</button>
+    <div class="quick-flyout-menu">
+      <a href="trangchu.html">Trang chủ</a>
+      <a href="nendoroid.html">Nendoroid</a>
+      <a href="scale-figure.html">Scale Figure</a>
+      <a href="pop-up-parade.html">Miscellaneous</a>
+      <a href="plush-doll.html">Gấu bông / Doll</a>
+      <a href="keychain-strap.html">Móc khóa & Stickers</a>
+      <a href="acrylic-stand.html">Acrylic Stand</a>
+      <a href="trang-tri-ban.html">Racing Cars</a>
+      <a href="preorder.html">Hàng Pre-order</a>
+      <a href="sale.html">Khuyến mãi</a>
+      <a href="lien-he.html">Liên hệ</a>
+      <a href="cart.html">Giỏ hàng</a>
+      <a href="dashboard.html">Dashboard</a>
     </div>
+  </div>
+
+  <script src="../js/cart-count-sync.js"></script>
+  <script src="../js/script.js"></script>
   <script>
     (function () {
       const ORDERS_KEY = "smile-shop-orders";

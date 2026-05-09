@@ -1,5 +1,4 @@
 (function () {
-  const cartCountEl = document.getElementById("cart-count");
   const searchInput = document.getElementById("search-input");
   const productList = document.getElementById("product-list");
   const productCards = Array.from(document.querySelectorAll(".product-card"));
@@ -77,7 +76,10 @@
   }
 
   function updateCartUI() {
-    cartCountEl.textContent = String(cartCount);
+    var text = String(cartCount);
+    document.querySelectorAll("#cart-count, [data-cart-count]").forEach(function (el) {
+      el.textContent = text;
+    });
   }
 
   function showToast(message) {
@@ -208,7 +210,9 @@
     }
 
     if (event.target.closest(".btn-primary")) {
-      productList.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (productList) {
+        productList.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
       return;
     }
 
@@ -218,23 +222,25 @@
     }
   });
 
-  searchInput.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      filterProducts(searchInput.value);
-      hideSuggestions();
-    }
-  });
+  if (searchInput) {
+    searchInput.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        filterProducts(searchInput.value);
+        hideSuggestions();
+      }
+    });
 
-  searchInput.addEventListener("input", function () {
-    if (!searchInput.value.trim()) {
-      productCards.forEach(function (card) { card.style.display = ""; });
-    }
-    showSuggestions(searchInput.value);
-  });
+    searchInput.addEventListener("input", function () {
+      if (!searchInput.value.trim()) {
+        productCards.forEach(function (card) { card.style.display = ""; });
+      }
+      showSuggestions(searchInput.value);
+    });
 
-  searchInput.addEventListener("focus", function () {
-    showSuggestions(searchInput.value);
-  });
+    searchInput.addEventListener("focus", function () {
+      showSuggestions(searchInput.value);
+    });
+  }
 
   document.addEventListener("click", function (event) {
     if (event.target.closest(".search-suggest-item")) {

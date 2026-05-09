@@ -1,10 +1,34 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
-<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Hàng Pre-order - Smile Figure Shop</title><link rel="stylesheet" href="../css/styles.css" /></head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hàng Pre-order - Smile Figure Shop</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
 <body>
-  <div class="quick-flyout" aria-label="Đi nhanh đến các trang">
-      <button class="quick-flyout-trigger" type="button">Đi nhanh ↗</button>
-      <div class="quick-flyout-menu">
+  <header>
+    <div class="topbar">
+      <div class="logo">
+        <div class="logo-circle">G</div>
+        <div>
+          <div class="logo-text-main">Smile Figure Shop</div>
+          <div class="logo-text-sub">Đồ lưu niệm & figure chính hãng</div>
+        </div>
+      </div>
+      <div class="search-box">
+        <input id="search-input" type="text" placeholder="Tìm sản phẩm..." />
+        <span>🔍</span>
+      </div>
+      <div class="header-actions">
+        <a href="#dang-nhap">👤 Đăng nhập</a>
+        <a href="cart.html">🛒 Giỏ hàng (<span data-cart-count>0</span>)</a>
+        <a href="order-history.html">🧾 Lịch sử mua</a>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-inner">
+        <a href="trangchu.html">Trang chủ</a>
         <a href="nendoroid.html">Nendoroid</a>
         <a href="scale-figure.html">Scale Figure</a>
         <a href="pop-up-parade.html">Deltarune</a>
@@ -12,16 +36,62 @@
         <a href="keychain-strap.html">Móc khóa & Strap</a>
         <a href="acrylic-stand.html">Acrylic Stand</a>
         <a href="trang-tri-ban.html">Đồ trang trí bàn</a>
-        <a href="preorder.html">Hàng Pre-order</a>
+        <a href="preorder.html" class="active">Hàng Pre-order</a>
         <a href="sale.html">Khuyến mãi</a>
         <a href="lien-he.html">Liên hệ</a>
-        <a href="cart.html">Giỏ hàng</a>
-        <a href="dashboard.html">Dashboard</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="section-header">
+      <div>
+        <div class="section-title">Hàng Pre-order</div>
+        <div class="section-sub">Đặt trước để nhận bonus độc quyền</div>
       </div>
     </div>
-  <header><div class="topbar"><div class="logo"><div class="logo-circle">G</div><div><div class="logo-text-main">Smile Figure Shop</div><div class="logo-text-sub">Đồ lưu niệm & figure chính hãng</div></div></div><div class="search-box"><input type="text" placeholder="Tìm sản phẩm..." /><span>🔍</span></div><div class="header-actions"><a href="#dang-nhap">👤 Đăng nhập</a><a href="cart.html">🛒 Giỏ hàng (<span data-cart-count>0</span>)</a></div></div><nav><div class="nav-inner"><a href="trangchu.html">Trang chủ</a><a href="nendoroid.html">Nendoroid</a><a href="scale-figure.html">Scale Figure</a><a href="pop-up-parade.html">Deltarune</a><a href="plush-doll.html">Gấu bông / Doll</a><a href="keychain-strap.html">Móc khóa & Strap</a><a href="acrylic-stand.html">Acrylic Stand</a><a href="trang-tri-ban.html">Đồ trang trí bàn</a><a href="preorder.html" class="active">Hàng Pre-order</a><a href="sale.html">Khuyến mãi</a><a href="lien-he.html">Liên hệ</a></div></nav></header>
-  <main><div class="section-header"><div><div class="section-title">Hàng Pre-order</div><div class="section-sub">Đặt trước để nhận bonus độc quyền</div></div></div><section class="product-grid"><article class="product-card"><div class="product-body"><h2 class="product-title">Shadow Hero Limited</h2><div class="product-meta"><div class="product-price">1.690.000đ</div><div class="product-status preorder">Đang mở cọc</div></div></div></article><article class="product-card"><div class="product-body"><h2 class="product-title">Desk Diorama Mega Set</h2><div class="product-meta"><div class="product-price">2.390.000đ</div><div class="product-status preorder">Đến 25/05</div></div></div></article></section></main>
+    <section class="product-grid">
+      <article class="product-card">
+        <div class="product-body">
+          <h2 class="product-title">Shadow Hero Limited</h2>
+          <div class="product-meta">
+            <div class="product-price">1.690.000đ</div>
+            <div class="product-status preorder">Đang mở cọc</div>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="product-body">
+          <h2 class="product-title">Desk Diorama Mega Set</h2>
+          <div class="product-meta">
+            <div class="product-price">2.390.000đ</div>
+            <div class="product-status preorder">Đến 25/05</div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div class="quick-flyout" aria-label="Đi nhanh đến các trang">
+    <button class="quick-flyout-trigger" type="button">Đi nhanh ↗</button>
+    <div class="quick-flyout-menu">
+      <a href="trangchu.html">Trang chủ</a>
+      <a href="nendoroid.html">Nendoroid</a>
+      <a href="scale-figure.html">Scale Figure</a>
+      <a href="pop-up-parade.html">Miscellaneous</a>
+      <a href="plush-doll.html">Gấu bông / Doll</a>
+      <a href="keychain-strap.html">Móc khóa & Stickers</a>
+      <a href="acrylic-stand.html">Acrylic Stand</a>
+      <a href="trang-tri-ban.html">Racing Cars</a>
+      <a href="preorder.html">Hàng Pre-order</a>
+      <a href="sale.html">Khuyến mãi</a>
+      <a href="lien-he.html">Liên hệ</a>
+      <a href="cart.html">Giỏ hàng</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+  </div>
+
   <script src="../js/cart-count-sync.js"></script>
   <script src="../js/shop-actions.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>
