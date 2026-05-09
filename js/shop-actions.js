@@ -96,9 +96,8 @@
       "doto.webp",
     ],
     "sale.html": [
-      "GenreHeader_880x440_Umamusume.webp",
-      "Tazuna_Hayakawa_29.webp",
-      "Tracen_Academy.webp"
+      "kita.webp",
+      "diamond.webp",
     ]
   };
   const DEFAULT_IMAGE_POOL = [
