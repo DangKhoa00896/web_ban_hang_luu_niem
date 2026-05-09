@@ -92,9 +92,8 @@
       "car10.jpg"
     ],
     "preorder.html": [
-      "tracen.jpg",
-      "GenreHeader_880x440_Umamusume.webp",
-      "Tazuna_Hayakawa_29.webp"
+      "opera.webp",
+      "doto.webp",
     ],
     "sale.html": [
       "GenreHeader_880x440_Umamusume.webp",
