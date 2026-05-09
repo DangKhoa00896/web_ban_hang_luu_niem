@@ -1,0 +1,48 @@
+.menu_ngang{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+    
+}
+.menu_ngang li{
+    margin: 0;
+    padding: 10px ;
+    background-color: #43f3d9;
+}
+.menu_ngang li a{
+    text-decoration: none;
+}
+.menu_ngang li:hover{
+    background-color: orange;
+    border-radius: 5px;
+}
+.menu_ngang li a:hover{
+    font-weight: bold;
+    color: white;
+}
+.menu_doc{
+    list-style: none;
+    padding: 0;
+    margin: 20px 0px;
+    width: 250px;
+    
+}
+.menu_doc li{
+    margin: 0;
+    padding: 10px;
+    background-color: #1498db;
+    border-bottom: 1px solid #fff;
+}
+.menu_doc li a{
+    text-decoration: none;
+    color: black;
+}
+.menu_doc li:hover{
+    background-color:cyan;
+    border-radius: 5px;
+}
+.menu_doc li a:hover{
+    font-style: italic;
+    color: black;
+}
