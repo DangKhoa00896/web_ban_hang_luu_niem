@@ -3,12 +3,11 @@
   const COUNT_STORAGE_KEY = "smile-shop-cart-count";
   const IMAGE_BY_PAGE = {
     "trangchu.html": [
-      "tracen.jpg",
-      "Tracen_Academy.webp",
-      "Tazuna_Hayakawa_29.webp",
-      "GenreHeader_880x440_Umamusume.webp",
-      "tracen.jpg",
-      "Tracen_Academy.webp"
+      "teio.webp",
+      "maruzennsky.webp",
+      "bourbon.webp",
+      "mayanoo.webp",
+      "rudolf.webp"
     ],
     "nendoroid.html": [
       "tamamo chibi.webp",
