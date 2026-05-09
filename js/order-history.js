@@ -1,7 +1,7 @@
 (function () {
   const ORDERS_STORAGE_KEY = "smile-shop-orders";
   const ordersListEl = document.getElementById("orders-list");
-  const btnClearHistory = document.getElementById("btn-clear-history");
+  const btnClearHistory = document.getElementById("clear-orders-btn");
 
   function formatDate(iso) {
     const date = new Date(iso);

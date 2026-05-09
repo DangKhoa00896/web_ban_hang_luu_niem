@@ -200,7 +200,7 @@
 
   document.addEventListener("click", function (event) {
     const addBtn = event.target.closest(".btn-mini");
-    if (addBtn) {
+    if (addBtn && !addBtn.closest("#cart-list")) {
       const card = addBtn.closest(".product-card");
       const productName = card.querySelector(".product-title").textContent.trim();
       const priceText = card.querySelector(".product-price").textContent.trim().replace(/\s+/g, " ");
@@ -216,7 +216,7 @@
       return;
     }
 
-    if (event.target.closest(".btn-outline")) {
+    if (event.target.closest(".hero-cta .btn-outline")) {
       showToast("Lich phat hanh dang cap nhat, vui long quay lai sau.");
       return;
     }
