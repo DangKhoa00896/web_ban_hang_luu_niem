@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Doanh Thu - Smile Figure Shop</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .dashboard-wrap {
+      max-width: 1200px;
+      margin: 22px auto 40px;
+      padding: 0 20px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .kpi-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1e2530;
+      line-height: 1.1;
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .panel {
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .panel-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .bars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+      align-items: end;
+      gap: 10px;
+      min-height: 200px;
+      padding: 8px 0;
+    }
+
+    .bar-col {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .bar {
+      width: 100%;
+      background: linear-gradient(180deg, #ffae3f, #ff8800);
+      border-radius: 8px 8px 4px 4px;
+      min-height: 6px;
+      box-shadow: 0 6px 12px rgba(255, 136, 0, 0.25);
+      margin-bottom: 6px;
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 9px 0;
+      border-bottom: 1px dashed #ececec;
+      font-size: 13px;
+    }
+
+    .list-item:last-child {
+      border-bottom: none;
+    }
+
+    .orders-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .orders-table th,
+    .orders-table td {
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      padding: 8px 6px;
+      vertical-align: top;
+    }
+
+    .orders-table th {
+      font-size: 12px;
+      color: #666;
+      font-weight: 700;
+    }
+
+    .muted {
+      color: #777;
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .panel-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo">
+        <div class="logo-circle">G</div>
+        <div>
+          <div class="logo-text-main">Smile Figure Shop</div>
+          <div class="logo-text-sub">Đồ lưu niệm & figure chính hãng</div>
+        </div>
+      </div>
+      <div class="search-box">
+        <input id="search-input" type="text" placeholder="Tìm sản phẩm..." />
+        <span>🔍</span>
+      </div>
+      <div class="header-actions">
+        <a href="#dang-nhap">👤 Đăng nhập</a>
+        <a href="cart.html">🛒 Giỏ hàng (<span data-cart-count>0</span>)</a>
+        <a href="order-history.html">🧾 Lịch sử mua</a>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-inner">
+        <a href="trangchu.html">Trang chủ</a>
+        <a href="nendoroid.html">Nendoroid</a>
+        <a href="scale-figure.html">Scale Figure</a>
+        <a href="pop-up-parade.html">Deltarune</a>
+        <a href="plush-doll.html">Gấu bông / Doll</a>
+        <a href="keychain-strap.html">Móc khóa & Strap</a>
+        <a href="acrylic-stand.html">Acrylic Stand</a>
+        <a href="trang-tri-ban.html">Đồ trang trí bàn</a>
+        <a href="preorder.html">Hàng Pre-order</a>
+        <a href="sale.html">Khuyến mãi</a>
+        <a href="lien-he.html">Liên hệ</a>
+        <a href="lab-thuc-hanh.html">Lab Thực Hành</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="dashboard-wrap">
+    <div class="section-header">
+      <div>
+        <div class="section-title">Báo cáo doanh thu mua bán</div>
+        <div class="section-sub">Dữ liệu lấy từ localStorage: `smile-shop-orders`</div>
+      </div>
+    </div>
+
+    <section class="kpi-grid">
+      <article class="kpi-card">
+        <div class="kpi-label">Tổng doanh thu</div>
+        <div id="kpi-revenue" class="kpi-value">0đ</div>
+      </article>
+      <article class="kpi-card">
+        <div class="kpi-label">Tổng số đơn</div>
+        <div id="kpi-orders" class="kpi-value">0</div>
+      </article>
+      <article class="kpi-card">
+        <div class="kpi-label">Sản phẩm đã bán</div>
+        <div id="kpi-items" class="kpi-value">0</div>
+      </article>
+      <article class="kpi-card">
+        <div class="kpi-label">Giá trị đơn trung bình</div>
+        <div id="kpi-aov" class="kpi-value">0đ</div>
+      </article>
+    </section>
+
+    <section class="panel-grid">
+      <article class="panel">
+        <div class="panel-title">Doanh thu theo tháng</div>
+        <div id="monthly-bars" class="bars"></div>
+      </article>
+      <article class="panel">
+        <div class="panel-title">Top sản phẩm bán chạy</div>
+        <div id="top-products"></div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">Đơn hàng gần đây</div>
+      <div id="orders-table-wrap"></div>
+    </section>
+  </main>
+
+  <div class="quick-flyout" aria-label="Đi nhanh đến các trang">
+    <button class="quick-flyout-trigger" type="button">Đi nhanh ↗</button>
+    <div class="quick-flyout-menu">
+      <a href="trangchu.html">Trang chủ</a>
+      <a href="nendoroid.html">Nendoroid</a>
+      <a href="scale-figure.html">Scale Figure</a>
+      <a href="pop-up-parade.html">Miscellaneous</a>
+      <a href="plush-doll.html">Gấu bông / Doll</a>
+      <a href="keychain-strap.html">Móc khóa & Stickers</a>
+      <a href="acrylic-stand.html">Acrylic Stand</a>
+      <a href="trang-tri-ban.html">Racing Cars</a>
+      <a href="preorder.html">Hàng Pre-order</a>
+      <a href="sale.html">Khuyến mãi</a>
+      <a href="lien-he.html">Liên hệ</a>
+      <a href="lab-thuc-hanh.html">Lab Thực Hành</a>
+      <a href="cart.html">Giỏ hàng</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+  </div>
+
+  <script src="../js/cart-count-sync.js"></script>
+  <script src="../js/script.js"></script>
+  <script>
+    (function () {
+      const ORDERS_KEY = "smile-shop-orders";
+
+      function loadOrders() {
+        try {
+          const parsed = JSON.parse(localStorage.getItem(ORDERS_KEY) || "[]");
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function parsePrice(value) {
+        return Number(String(value || "").replace(/[^\d]/g, "") || 0);
+      }
+
+      function formatMoney(value) {
+        return value.toLocaleString("vi-VN") + "đ";
+      }
+
+      function orderRevenue(order) {
+        return (order.items || []).reduce(function (sum, item) {
+          return sum + parsePrice(item.price) * (Number(item.qty) || 0);
+        }, 0);
+      }
+
+      function formatDate(value) {
+        const date = new Date(value);
+        return isNaN(date.getTime()) ? "-" : date.toLocaleString("vi-VN");
+      }
+
+      function monthKey(value) {
+        const date = new Date(value);
+        if (isNaN(date.getTime())) return "Không rõ";
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, "0");
+        return y + "-" + m;
+      }
+
+      function renderEmptyState() {
+        document.getElementById("kpi-revenue").textContent = "0đ";
+        document.getElementById("kpi-orders").textContent = "0";
+        document.getElementById("kpi-items").textContent = "0";
+        document.getElementById("kpi-aov").textContent = "0đ";
+        document.getElementById("monthly-bars").innerHTML = "<div class='muted'>Chưa có dữ liệu doanh thu.</div>";
+        document.getElementById("top-products").innerHTML = "<div class='muted'>Chưa có dữ liệu sản phẩm.</div>";
+        document.getElementById("orders-table-wrap").innerHTML = "<div class='muted'>Chưa có đơn hàng nào được tạo.</div>";
+      }
+
+      function renderDashboard(orders) {
+        if (!orders.length) {
+          renderEmptyState();
+          return;
+        }
+
+        const totalRevenue = orders.reduce(function (sum, order) {
+          return sum + orderRevenue(order);
+        }, 0);
+        const totalOrders = orders.length;
+        const totalItems = orders.reduce(function (sum, order) {
+          return sum + (order.items || []).reduce(function (s, item) { return s + (Number(item.qty) || 0); }, 0);
+        }, 0);
+        const aov = totalOrders ? Math.round(totalRevenue / totalOrders) : 0;
+
+        document.getElementById("kpi-revenue").textContent = formatMoney(totalRevenue);
+        document.getElementById("kpi-orders").textContent = String(totalOrders);
+        document.getElementById("kpi-items").textContent = String(totalItems);
+        document.getElementById("kpi-aov").textContent = formatMoney(aov);
+
+        const monthlyMap = {};
+        orders.forEach(function (order) {
+          const key = monthKey(order.createdAt);
+          monthlyMap[key] = (monthlyMap[key] || 0) + orderRevenue(order);
+        });
+        const monthlyEntries = Object.keys(monthlyMap)
+          .sort()
+          .slice(-6)
+          .map(function (k) { return { month: k, revenue: monthlyMap[k] }; });
+        const maxRevenue = Math.max.apply(null, monthlyEntries.map(function (x) { return x.revenue; }));
+
+        document.getElementById("monthly-bars").innerHTML = monthlyEntries.map(function (entry) {
+          const ratio = maxRevenue ? (entry.revenue / maxRevenue) : 0;
+          const height = Math.max(8, Math.round(ratio * 160));
+          return (
+            "<div class='bar-col'>" +
+            "<div class='bar' style='height:" + height + "px'></div>" +
+            "<div>" + entry.month + "</div>" +
+            "<div class='muted'>" + formatMoney(entry.revenue) + "</div>" +
+            "</div>"
+          );
+        }).join("");
+
+        const productMap = {};
+        orders.forEach(function (order) {
+          (order.items || []).forEach(function (item) {
+            const name = item.name || "Sản phẩm";
+            if (!productMap[name]) {
+              productMap[name] = { qty: 0, revenue: 0 };
+            }
+            const qty = Number(item.qty) || 0;
+            productMap[name].qty += qty;
+            productMap[name].revenue += parsePrice(item.price) * qty;
+          });
+        });
+
+        const topProducts = Object.keys(productMap)
+          .map(function (name) {
+            return { name: name, qty: productMap[name].qty, revenue: productMap[name].revenue };
+          })
+          .sort(function (a, b) { return b.qty - a.qty; })
+          .slice(0, 5);
+
+        document.getElementById("top-products").innerHTML = topProducts.map(function (item) {
+          return (
+            "<div class='list-item'>" +
+            "<div>" + item.name + "<div class='muted'>SL: " + item.qty + "</div></div>" +
+            "<div><strong>" + formatMoney(item.revenue) + "</strong></div>" +
+            "</div>"
+          );
+        }).join("");
+
+        const recent = orders
+          .slice()
+          .sort(function (a, b) { return new Date(b.createdAt) - new Date(a.createdAt); })
+          .slice(0, 10);
+
+        const tableHtml =
+          "<table class='orders-table'>" +
+          "<thead><tr><th>Mã đơn</th><th>Thời gian</th><th>Khách hàng</th><th>Thanh toán</th><th>Tổng tiền</th></tr></thead>" +
+          "<tbody>" +
+          recent.map(function (o) {
+            return "<tr>" +
+              "<td>" + (o.id || "-") + "</td>" +
+              "<td>" + formatDate(o.createdAt) + "</td>" +
+              "<td>" + ((o.customer && o.customer.fullName) || "-") + "</td>" +
+              "<td>" + (o.paymentMethod || "-") + "</td>" +
+              "<td><strong>" + formatMoney(orderRevenue(o)) + "</strong></td>" +
+              "</tr>";
+          }).join("") +
+          "</tbody></table>";
+
+        document.getElementById("orders-table-wrap").innerHTML = tableHtml;
+      }
+
+      renderDashboard(loadOrders());
+    })();
+    
+  </script>
+</body>
+</html>
