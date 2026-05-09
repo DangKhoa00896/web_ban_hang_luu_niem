@@ -27,7 +27,7 @@
       "dantsu flame.webp",
       "manhattan cafe webp.webp",
       "rudolf.webp",
-      "mayanooo.webp",
+      "rice s.webp",
       "hishi miracle.webp"
     ],
     "pop-up-parade.html": [
