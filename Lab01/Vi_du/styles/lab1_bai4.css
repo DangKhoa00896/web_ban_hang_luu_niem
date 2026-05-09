@@ -1,0 +1,258 @@
+@charset "utf-8";
+
+/* Lab 1 Bài 4 — bố cục 2 panel + thông tin bổ sung */
+
+body {
+  margin: 0;
+  font-family: "Source Serif 4", "Times New Roman", Georgia, serif;
+  background: #c5dff5;
+  color: #1a1a1a;
+}
+
+.lab-top {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: 52px;
+  background: #fff;
+  border-bottom: 3px solid #8b0000;
+}
+
+.lab-top-left {
+  display: flex;
+  align-items: center;
+}
+
+.lab-badge {
+  background: #8b0000;
+  color: #fff;
+  font-weight: 800;
+  padding: 12px 20px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 1.1rem;
+}
+
+.lab-title-html {
+  padding: 12px 18px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: #8b0000;
+  align-self: center;
+}
+
+.lab-stu {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  padding: 10px 24px;
+  align-self: center;
+  color: #1565c0;
+  letter-spacing: 2px;
+}
+
+.lab-stu span {
+  color: #c62828;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 24px auto 40px;
+  padding: 0 16px;
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: #fff;
+  border: 2px solid #111;
+  padding: 20px 18px 24px;
+  min-height: 420px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.panel h2 {
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.panel p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0 0 12px;
+  text-align: justify;
+}
+
+.author-muted {
+  color: #9e9e9e;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.book-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 16px 0;
+}
+
+.circle-43 {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #c62828;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  font-family: "Be Vietnam Pro", sans-serif;
+  flex-shrink: 0;
+}
+
+.lines-title {
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.lines-title .l1 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.lines-title .l2 {
+  font-size: 1.65rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.lines-title .l3 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.tagline-red {
+  color: #c62828;
+  font-size: 0.78rem;
+  font-weight: 700;
+  max-width: 200px;
+  line-height: 1.35;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.illus {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.illus img {
+  max-width: 100%;
+  height: auto;
+  max-height: 180px;
+}
+
+.logos-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #444;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.mini-cover {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.mini-cover img {
+  max-width: 120px;
+  height: auto;
+}
+
+.points {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.publisher-box {
+  margin-top: 18px;
+  padding: 12px 14px;
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.publisher-box strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.price-bar {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.price-bar .gia {
+  font-weight: 800;
+  color: #c62828;
+  font-size: 1rem;
+}
+
+.extra {
+  margin-top: 20px;
+  max-width: 480px;
+  margin-left: auto;
+}
+
+.extra h3 {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 1rem;
+  margin: 0 0 10px;
+  color: #0d47a1;
+}
+
+.extra dl {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.extra dt {
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.extra dd {
+  margin: 0;
+  padding-left: 0;
+}
