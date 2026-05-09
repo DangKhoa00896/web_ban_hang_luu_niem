@@ -4,7 +4,7 @@
   const IMAGE_BY_PAGE = {
     "trangchu.html": [
       "teio.webp",
-      "maruzennsky.webp",
+      "maruzensky.webp",
       "bourbon.webp",
       "mayanoo.webp",
       "rudolf.webp"
