@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab08-json</title>
+    <style>
+        #userInfo{
+            font-family:  Arial, sans-serif;
+            margin-top: 20px;
+        }
+        .info-card{
+            border: 2px solid #000;
+            padding: 20px;
+            width: 400px;
+            background-color: #f9f9f9;
+        }
+        .info-card h2{
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 0;
+        }
+        .info-card p{
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+    <body>
+        <div id="app">
+            <h1>User Information</h1>
+            <div id="userInfo">
+                    <p><strong>Name: </strong> Nguyễn Văn A </p>
+                    <p><strong>Age: </strong> 30 </p>
+                    <p><strong>Email: </strong> nguyenvana@gmail.com </p>
+                    <p><strong>Address: </strong> Ho Chi Minh </p>
+                </div>
+        </div>
+        <script>
+            var userData = {
+                "name":"Nguyễn Văn A",
+                "age":30,
+                "email": "nguyenvana@stu.edu.vn",
+                "address":{
+                    "city":"Ho Chi Minh",
+                    "state":"NY",
+                    "zipcode":"10001"
+                }
+            }
+    
+            function displayUserInfo(data){
+                var userInfoElement = document.getElementById('userInfo');
+                userInfoElement.innerHTML =`
+                    <p><strong>Name: </strong> ${data.name} </p>
+                    <p><strong>Age: </strong> ${data.age} </p>
+                    <p><strong>Email: </strong> ${data.email} </p>
+                    <p><strong>Address: </strong> ${data.address.city}, ${data.address.state} ${data.address.zipcode} </p>
+                `
+            }
+    
+            displayUserInfo(userData)
+        </script>
+    
+    </body>
+
+</html>
